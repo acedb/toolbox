@@ -2,6 +2,11 @@
 from toolbox.preprocessing import NLPPreprocessor
 import pytest
 
+import string
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
 def test_punctuation_remover():
     # function that removes punctuation from a given text
     text = 'Did you %know this 359?'
@@ -9,18 +14,18 @@ def test_punctuation_remover():
         text = text.replace(punctuation, '')
     assert text == 'Did you know this 359'
 
-def num_remover():
+def test_num_remover():
     # removes numbers from a given text
     text = 'Did you know this 359'
     text = ''.join(char for char in text if not char.isdigit())
     assert text == 'Did you know this '
 
-def to_lowercase():
+def test_to_lowercase():
     # function that makes all text lowercase
     text = 'Did you Know this'
     assert text.lower() == 'did you know this'
 
-def stopword_remover():
+def test_stopword_remover():
     # removes stopwords from given text and returns text as list of words
     text = 'i am so very happy today'
 
@@ -36,8 +41,8 @@ def stopword_remover():
     # returns list of non-stopwords
     assert text_list == ['happy', 'today']
 
-def list_concat():
+def test_list_concat():
     # converts list of words back into string
-    text = ['i', 'am', 'so', 'very', 'happy', 'today']
+    text_list = ['i', 'am', 'so', 'very', 'happy', 'today']
     text = ' '.join(text_list)
-    assert text = 'i am so very happy today'
+    assert text == 'i am so very happy today'
