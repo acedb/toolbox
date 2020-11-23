@@ -22,7 +22,7 @@ def test_num_remover():
 
 def test_to_lowercase():
     # function that makes all text lowercase
-    text = 'Did you Know this'
+    text = 'Did you Know This'
     assert text.lower() == 'did you know this'
 
 def test_stopword_remover():
